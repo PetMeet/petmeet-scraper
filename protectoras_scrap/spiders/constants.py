@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+# Constants for PROTECTORA_LUGO
 PROTECTORA_LUGO_NAME = 'Sociedad Protectora de Animales y Plantas de Lugo'
 PROTECTORA_LUGO_LOCATION = '43.054173955096324;-7.531674181292715'
 PROTECTORA_LUGO_PAGE_DETAILS_LINK_XPATH = "//div[@class='box_listado']/a/@href"

@@ -16,9 +16,11 @@ class ProtectoraLugoSpider(scrapy.Spider):
         for url in self.start_urls:
             yield scrapy.Request(url, self.parse_pet_urls)
 
+    # Retrieve next page of pets
     def get_next_page(self, response):
         return response.xpath(PROTECTORA_LUGO_PAGE_LINK_XPATH).get()
 
+    # Extract urls for each pet
     def parse_pet_urls(self, response):
         
         next_page = self.get_next_page(response)
@@ -31,6 +33,7 @@ class ProtectoraLugoSpider(scrapy.Spider):
         if (next_page):
             yield scrapy.Request(self.base_url + next_page, callback=self.parse_pet_urls)
 
+    # Extract pet info
     def parse_pet_info(self, response):
         
         data = response.xpath(PROTECTORA_LUGO_PET_DATA_XPATH).getall()
@@ -52,19 +55,24 @@ class ProtectoraLugoSpider(scrapy.Spider):
         
         yield pet
 
+    # Determine pet type (DOG/CAT)
     def __get_pet_type(self, response):
         return 'DOG' if 'CANINA' in response.url else 'CAT'
 
+    # Build pet picture url
     def __get_pet_picture_url(self, response):
         picture_data = response.xpath(PROTECTORA_LUGO_PET_PICTURE_XPATH).get()
         picture_url = re.sub(r'[();]', '', picture_data.split('url')[1])
         return self.base_url + picture_url
 
+    # Determine pet sex (MALE/FEMALE)
     def __get_pet_sex(self, sex):
         return 'MALE' if sex == 'Macho' else 'FEMALE'
 
+    # Determine if pet is dangerous (YES/NO)
     def __is_pet_dangerous(self, dangerous):
         return 'YES' if dangerous == 'SI' else 'NO'
 
+    # Determine if pet is already adopted
     def __is_pet_adopted(self, response):
         return len(response.xpath(PROTECTORA_LUGO_PET_ADOPTED_XPATH)) > 0
