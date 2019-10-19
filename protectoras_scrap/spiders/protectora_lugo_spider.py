@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import scrapy
-import logging
 import re
 
 from protectoras_scrap.spiders.constants import *
