@@ -21,6 +21,8 @@ USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
+LOG_ENABLED = False
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -65,7 +67,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'protectoras_scrap.pipelines.ProtectorasScrapPipeline': 300,
+   'protectoras_scrap.pipelines.ProtectorasScrapPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
