@@ -5,9 +5,10 @@
 BOT_NAME = 'protectoras_scrap'
 
 # Spiders
-SPIDER_MODULES = ['protectoras_scrap.spiders']
-NEWSPIDER_MODULE = 'protectoras_scrap.spiders'
-
+SPIDER_MODULES = [
+    'protectoras_scrap.spiders.protectora_lugo_spider',
+    'protectoras_scrap.spiders.protectora_gatocan_spider'
+]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0'
