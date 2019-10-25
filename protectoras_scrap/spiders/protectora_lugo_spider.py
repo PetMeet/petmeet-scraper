@@ -5,12 +5,20 @@ import re
 
 from protectoras_scrap.spiders.constants import *
 from protectoras_scrap.models.Pet import Pet
+from scrapy.utils.serialize import ScrapyJSONEncoder
 
 class ProtectoraLugoSpider(scrapy.Spider):
     name = 'protectora_lugo_spider'
     allowed_domains = ['www.protectoralugo.org']
     base_url = 'http://www.protectoralugo.org'
     start_urls = ['http://www.protectoralugo.org/templates/jt001_j25/html/com_wrapper/wrapper/adopciones.php?username=&email=&nombreusuario=&password=&pruebas=']        
+    
+    # Used to easily disable pipeline during tests
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'protectoras_scrap.pipelines.ProtectorasScrapPipeline': 300
+        }
+    }
 
     def start_requests(self):
         for url in self.start_urls:
@@ -35,9 +43,9 @@ class ProtectoraLugoSpider(scrapy.Spider):
 
     # Extract pet info
     def parse_pet_info(self, response):
-        
+                
         data = response.xpath(PROTECTORA_LUGO_PET_DATA_XPATH).getall()
-
+        
         pet = Pet()
 
         pet['name'] = data[1]
@@ -52,7 +60,7 @@ class ProtectoraLugoSpider(scrapy.Spider):
         pet['animal_shelter'] = PROTECTORA_LUGO_NAME
         pet['animal_shelter_location'] = PROTECTORA_LUGO_LOCATION 
         pet['description'] = ''
-        
+                
         yield pet
 
     # Determine pet type (DOG/CAT)

@@ -9,4 +9,4 @@ COPY . .
 
 ENV SPIDER="protectora_lugo_spider"
 
-ENTRYPOINT ["/bin/bash", "-c", "scrapy crawl $SPIDER"]
+ENTRYPOINT ["/bin/bash", "-c", "python3 -m unittest discover -v && scrapy crawl $SPIDER"]
