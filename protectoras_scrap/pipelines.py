@@ -41,7 +41,6 @@ class ProtectorasScrapPipeline(object):
 
     def process_item(self, item, spider):
         data = self.encoder.encode(item)
-        print(data)
         self.channel.basic_publish(exchange='',
                       routing_key=self.routing_key,
                       body=data)
