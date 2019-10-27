@@ -5,7 +5,6 @@ import re
 
 from protectoras_scrap.spiders.protectora_lugo_spider.constants import *
 from protectoras_scrap.models.Pet import Pet
-from scrapy.utils.serialize import ScrapyJSONEncoder
 
 
 # Retrieve next page of pets
