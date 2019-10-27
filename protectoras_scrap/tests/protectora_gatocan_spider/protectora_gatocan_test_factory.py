@@ -5,11 +5,11 @@ from protectoras_scrap.spiders.protectora_gatocan_spider.constants import PROTEC
 from protectoras_scrap.tests.protectora_gatocan_spider.test_constants import *
 from protectoras_scrap.models.Pet import Pet
 
+
 class ProtectoraGatocanTestFactory:
 
     @staticmethod
     def create_cat_model():
-        
         expectedPet = Pet()
         expectedPet['name'] = 'Magno'
         expectedPet['pet_type'] = 'CAT'
@@ -28,7 +28,6 @@ class ProtectoraGatocanTestFactory:
 
     @staticmethod
     def create_dog_model():
-        
         expectedPet = Pet()
         expectedPet['name'] = 'Harpo'
         expectedPet['pet_type'] = 'DOG'
@@ -41,7 +40,10 @@ class ProtectoraGatocanTestFactory:
         expectedPet['resource_url'] = PET_DOG_RESOURCE_URL
         expectedPet['animal_shelter'] = PROTECTORA_GATOCAN_NAME
         expectedPet['animal_shelter_location'] = PROTECTORA_GATOCAN_LOCATION
-        expectedPet['description'] = 'Harpo criouse desde os tres meses ata agora nun fogar, pero por circunstancias da vida, agora está no refuxio onde busca unha boa familia á que poida acompañar o resto da súa vida. É nobre,cariñoso, guapo e adora aos nenos.'
+        expectedPet[
+            'description'] = 'Harpo criouse desde os tres meses ata agora nun fogar, pero por circunstancias da vida, ' \
+                             'agora está no refuxio onde busca unha boa familia á que poida acompañar o resto da súa ' \
+                             'vida. É nobre,cariñoso, guapo e adora aos nenos.'
 
         return expectedPet
 

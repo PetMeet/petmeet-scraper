@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from protectoras_scrap.spiders import protectora_apadan_spider
+from protectoras_scrap.spiders.protectora_apadan_spider import protectora_apadan_spider
 from protectoras_scrap.tests.protectora_apadan_spider.test_constants import *
 from protectoras_scrap.tests.utils.response_provider import ResponseProvider
 from protectoras_scrap.tests.protectora_apadan_spider.protectora_apadan_test_factory import ProtectoraApadanTestFactory

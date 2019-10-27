@@ -2,8 +2,8 @@
 
 import scrapy
 from protectoras_scrap.models.Pet import Pet
+from protectoras_scrap.spiders.protectora_apadan_spider.constants import *
 import re
-
 
 def get_next_page(response):
     return response.xpath(PROTECTORA_APADAN_NEXT_PAGE_XPATH).get()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from protectoras_scrap.spiders import PROTECTORA_APADAN_NAME
-from protectoras_scrap.spiders import PROTECTORA_APADAN_LOCATION
+from protectoras_scrap.spiders.protectora_apadan_spider.constants import PROTECTORA_APADAN_NAME
+from protectoras_scrap.spiders.protectora_apadan_spider.constants import PROTECTORA_APADAN_LOCATION
 from protectoras_scrap.tests.protectora_apadan_spider.test_constants import *
 from protectoras_scrap.models.Pet import Pet
 
@@ -13,7 +13,8 @@ class ProtectoraApadanTestFactory:
         expected_pet = Pet()
         expected_pet['name'] = 'NINFA'
         expected_pet['pet_type'] = 'DOG'
-        expected_pet['picture'] = 'http://www.apadan.net/sites/default/files/imagecache/image_animales_principal/ninfaa.jpg'
+        expected_pet[
+            'picture'] = 'http://www.apadan.net/sites/default/files/imagecache/image_animales_principal/ninfaa.jpg'
         expected_pet['breed'] = 'Caza'
         expected_pet['sex'] = 'FEMALE'
         expected_pet['born_date'] = '-'
