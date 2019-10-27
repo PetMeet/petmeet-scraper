@@ -3,7 +3,7 @@
 import scrapy
 import re
 
-from protectoras_scrap.spiders.constants import *
+from protectoras_scrap.spiders.protectora_lugo_spider.constants import *
 from protectoras_scrap.models.Pet import Pet
 from scrapy.utils.serialize import ScrapyJSONEncoder
 
@@ -30,7 +30,7 @@ class ProtectoraLugoSpider(scrapy.Spider):
 
     # Extract urls for each pet
     def parse_pet_urls(self, response):
-        
+                        
         next_page = self.get_next_page(response)
 
         pet_urls = response.xpath(PROTECTORA_LUGO_PAGE_DETAILS_LINK_XPATH).getall()
@@ -43,7 +43,7 @@ class ProtectoraLugoSpider(scrapy.Spider):
 
     # Extract pet info
     def parse_pet_info(self, response):
-                
+
         data = response.xpath(PROTECTORA_LUGO_PET_DATA_XPATH).getall()
         
         pet = Pet()
@@ -83,4 +83,4 @@ class ProtectoraLugoSpider(scrapy.Spider):
 
     # Determine if pet is already adopted
     def __is_pet_adopted(self, response):
-        return len(response.xpath(PROTECTORA_LUGO_PET_ADOPTED_XPATH)) > 0
+        return 'YES' if (len(response.xpath(PROTECTORA_LUGO_PET_ADOPTED_XPATH)) > 0) else 'NO'

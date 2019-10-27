@@ -9,7 +9,7 @@ class Pet(scrapy.Item):
     sex = scrapy.Field()                       # Pet sex (MALE/FEMALE)
     born_date = scrapy.Field()                 # Born date
     dangerous = scrapy.Field()                 # Pet is dangerous (YES/NO/-)
-    adopted = scrapy.Field()                   # Pet is already adopted (True/False)
+    adopted = scrapy.Field()                   # Pet is already adopted (YES/NO/-)
     resource_url = scrapy.Field()              # Url where the resource data is located
     animal_shelter = scrapy.Field()            # Name of animal shelter
     animal_shelter_location = scrapy.Field()   # Animal shelter location (Coordinates spplited by ;)
